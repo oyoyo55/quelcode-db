@@ -43,7 +43,7 @@ CREATE TABLE messages (
 
 CREATE TABLE tasks (
     id             INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
-    carry_user_id  INTEGER(11) NOT NULL REFERENCES users(id),
+    assign_user_id INTEGER(11) NOT NULL REFERENCES users(id),
     content        VARCHAR(1000) NOT NULL,
     deadline       DATETIME,
     is_completed   TINYINT(1) DEFAULT 0 NOT NULL,   -- 1:完了
