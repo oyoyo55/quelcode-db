@@ -61,7 +61,7 @@ CREATE TABLE chatrooms (
     id             INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     name           VARCHAR(100) NOT NULL,
     description    VARCHAR(1000),
-    is_sent        TINYINT(1) DEFAULT 0 NOT NULL,   -- 1:送信不可
+    is_file_sent        TINYINT(1) DEFAULT 0 NOT NULL,   -- 1:送信不可
     is_deleted     TINYINT(1) DEFAULT 0 NOT NULL,   -- 1:削除済み
     message_id     INTEGER(11) NOT NULL REFERENCES messages(id),
     created_at     DATETIME NOT NULL,
