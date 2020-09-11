@@ -28,14 +28,14 @@ CREATE TABLE profiles (
 /*  messagesテーブル作成 */
 
 CREATE TABLE messages (
-    id              INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
-    content         VARCHAR(1000) NOT NULL,
-    filename        VARCHAR(100),
-    created_at      DATETIME NOT NULL,
-    message_user_id INTEGER(11) NOT NULL REFERENCES users(id),
-    updated_at      DATETIME NOT NULL,
-    update_user_id  INTEGER(11) NOT NULL REFERENCES users(id),
-    is_deleted      TINYINT(1) DEFAULT 0 NOT NULL   -- 1:削除済み
+    id             INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
+    content        VARCHAR(1000) NOT NULL,
+    filename       VARCHAR(100),
+    created_at     DATETIME NOT NULL,
+    create_user_id INTEGER(11) NOT NULL REFERENCES users(id),
+    updated_at     DATETIME NOT NULL,
+    update_user_id INTEGER(11) NOT NULL REFERENCES users(id),
+    is_deleted     TINYINT(1) DEFAULT 0 NOT NULL   -- 1:削除済み
 );
 
 
