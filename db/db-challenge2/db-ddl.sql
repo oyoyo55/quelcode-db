@@ -3,7 +3,7 @@
 CREATE TABLE users (
     id         INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     profile_id INTEGER(11) NOT NULL REFERENCES profiles(id),
-    email       VARCHAR(100) NOT NULL,
+    email      VARCHAR(100) NOT NULL,
     password   VARCHAR(100) NOT NULL,
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL,
@@ -14,12 +14,14 @@ CREATE TABLE users (
 /* profilesテーブル作成 */
 
 CREATE TABLE profiles (
-    id               INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
-    user_id          INTEGER(11) NOT NULL REFERENCES users(id),
-    name             VARCHAR(100) NOT NULL,
-    introduction     VARCHAR(1000) NOT NULL,
-    workplace_number VARCHAR(13) NOT NULL,   -- 勤務地電話番号
-    mobile_number    VARCHAR(13) NOT NULL    -- 携帯電話番号
+    id             INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
+    user_id        INTEGER(11) NOT NULL REFERENCES users(id),
+    name           VARCHAR(100) NOT NULL,
+    introduction   VARCHAR(1000) NOT NULL,
+    business_phone VARCHAR(13),    -- 勤務地電話番号
+    cell_phone     VARCHAR(13),    -- 携帯電話番号
+    created_at     DATETIME NOT NULL,
+    updated_at     DATETIME NOT NULL
 );
 
 
