@@ -3,7 +3,7 @@
 CREATE TABLE users (
     id         INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     profile_id INTEGER(11) NOT NULL REFERENCES profiles(id),
-    mail       VARCHAR(100) NOT NULL,
+    email       VARCHAR(100) NOT NULL,
     password   VARCHAR(100) NOT NULL,
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL,
