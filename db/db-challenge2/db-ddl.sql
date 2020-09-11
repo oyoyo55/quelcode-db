@@ -61,8 +61,9 @@ CREATE TABLE chatrooms (
     id             INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     name           VARCHAR(100) NOT NULL,
     description    VARCHAR(1000),
-    is_file_sent        TINYINT(1) DEFAULT 0 NOT NULL,   -- 1:送信不可
+    is_file_sent   TINYINT(1) DEFAULT 0 NOT NULL,   -- 1:送信不可
     is_deleted     TINYINT(1) DEFAULT 0 NOT NULL,   -- 1:削除済み
+    is_directed    TINYINT(1) DEFAULT 0 NOT NULL,   -- 1:ダイレクトチャット
     message_id     INTEGER(11) NOT NULL REFERENCES messages(id),
     created_at     DATETIME NOT NULL,
     create_user_id INTEGER(11) NOT NULL REFERENCES users(id),
@@ -71,11 +72,10 @@ CREATE TABLE chatrooms (
 );
 
 
-/* paeticipationテーブル作成 */
+/* participationsテーブル作成 */
 
-CREATE TABLE paeticipation (
+CREATE TABLE participations (
     chatroom_id   INTEGER(11) PRIMARY KEY AUTO_INCREMENT REFERENCES chatrooms(id),
     user_id       INTEGER(11) PRIMARY AUTO_INCREMENT REFERENCES users(id),   -- 参加者ID
-    is_directed   TINYINT(1) DEFAULT 0 NOT NULL,   -- 1:ダイレクトチャット
     particpate_at DATETIME NOT NULL                -- 参加日時
 );
