@@ -75,7 +75,8 @@ CREATE TABLE chatrooms (
 /* participationsテーブル作成 */
 
 CREATE TABLE participations (
-    chatroom_id   INTEGER(11) PRIMARY KEY AUTO_INCREMENT REFERENCES chatrooms(id),
-    user_id       INTEGER(11) PRIMARY AUTO_INCREMENT REFERENCES users(id),   -- 参加者ID
-    particpate_at DATETIME NOT NULL                -- 参加日時
+    chatroom_id   INTEGER(11) REFERENCES chatrooms(id),
+    user_id       INTEGER(11) REFERENCES users(id),
+    particpate_at DATETIME NOT NULL,      -- 参加日時
+    UNIQUE KEY `chatroom_id` (`chatroom_id`,`user_id`)           
 );
