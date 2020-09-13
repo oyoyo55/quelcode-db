@@ -31,6 +31,7 @@ CREATE TABLE messages (
     id             INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     content        VARCHAR(1000) NOT NULL,
     filename       VARCHAR(100),
+    chatroom_id    INT(11) NOT NULL REFERENCES chatrooms(id),
     created_at     DATETIME NOT NULL,
     create_user_id INTEGER(11) NOT NULL REFERENCES users(id),
     updated_at     DATETIME NOT NULL,
@@ -44,6 +45,7 @@ CREATE TABLE messages (
 CREATE TABLE tasks (
     id             INTEGER(11) PRIMARY KEY AUTO_INCREMENT,
     assign_user_id INTEGER(11) NOT NULL REFERENCES users(id),
+    chatroom_id    INT(11) NOT NULL REFERENCES chatrooms(id),
     content        VARCHAR(1000) NOT NULL,
     deadline       DATETIME,
     is_completed   TINYINT(1) DEFAULT 0 NOT NULL,   -- 1:完了
@@ -75,8 +77,8 @@ CREATE TABLE chatrooms (
 /* participationsテーブル作成 */
 
 CREATE TABLE participations (
-    chatroom_id   INTEGER(11) REFERENCES chatrooms(id),
-    user_id       INTEGER(11) REFERENCES users(id),
+    chatroom_id   INTEGER(11) NOT NULL REFERENCES chatrooms(id),
+    user_id       INTEGER(11) NOT NULL REFERENCES users(id),
     particpate_at DATETIME NOT NULL,      -- 参加日時
     UNIQUE KEY `chatroom_id` (`chatroom_id`,`user_id`)           
 );
