@@ -77,8 +77,12 @@ CREATE TABLE chatrooms (
 /* participationsテーブル作成 */
 
 CREATE TABLE participations (
-    chatroom_id   INTEGER(11) NOT NULL REFERENCES chatrooms(id),
-    user_id       INTEGER(11) NOT NULL REFERENCES users(id),
+    chatroom_id   INTEGER(11) REFERENCES chatrooms(id),
+    user_id       INTEGER(11) REFERENCES users(id),
     particpate_at DATETIME NOT NULL,      -- 参加日時
-    UNIQUE KEY `chatroom_id` (`chatroom_id`,`user_id`)           
+    UNIQUE KEY chatroom_id (chatroom_id, user_id),
+    FOREIGN KEY (chatroom_id) REFERENCES chatrooms(id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
