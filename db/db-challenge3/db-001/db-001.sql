@@ -1,5 +1,5 @@
 INSERT INTO users
-    (profile_id, email, password, created_at, updated_at, is_deleted)
+    (id, email, password, created_at, updated_at, is_deleted)
 VALUES
     (1, 'admin@labot.inc', 'admin', '2020-04-20 15:47:52', '2020-04-20 15:47:52', 0),
     (2, 'mysql@labot.inc', 'mysql55', '2020-04-22 16:02:55', '2020-04-22 16:02:55', 0),
@@ -28,4 +28,3 @@ VALUES
     (9, 'php', '伝説のphp6', NULL, NULL, '2020-04-24 01:01:06', '2020-04-24 01:01:06'),
     (10, 'js', 'Hello world', '0120-555-458', NULL, '2020-04-24 05:03:58', '2020-04-24 05:03:58'),
     (11, 'amazon', 'facebook', NULL, '080-9999-5555', '2020-04-24 06:00:02', '2020-04-24 06:00:02');
-    ssdss
