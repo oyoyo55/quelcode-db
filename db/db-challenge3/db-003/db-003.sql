@@ -1,5 +1,5 @@
 INSERT INTO participations
-    (chatroom_id, user_id, particpate_at)
+    (chatroom_id, user_id, participated_at)
 VALUES
     (1, 1, '2020-04-21 11:26:32'),
     (1, 2, '2020-04-22 16:02:55'),
