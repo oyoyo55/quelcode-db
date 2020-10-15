@@ -9,5 +9,4 @@ SELECT c.name AS ルーム名, MAX(m.updated_at) AS 投稿日時, p.name AS 投�
  WHERE u.is_deleted = 0
    AND m.is_deleted = 0
 GROUP BY m.chatroom_id
-  HAVING MAX(m.updated_at)
 ORDER BY m.chatroom_id ASC
