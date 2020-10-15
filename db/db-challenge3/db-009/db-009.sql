@@ -8,4 +8,4 @@ SELECT COUNT(m.chatroom_id) AS 投稿数,
  WHERE u.is_deleted = 0
    AND m.is_deleted = 0
 GROUP BY m.chatroom_id
-ORDER BY COUNT(m.chatroom_id) DESC
+ORDER BY 投稿数 DESC
