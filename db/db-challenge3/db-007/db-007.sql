@@ -7,3 +7,4 @@ SELECT id, name, description,
   FROM chatrooms
  WHERE description LIKE '%ダイレクトチャット'
    AND is_deleted = 0
+ORDER BY id ASC
