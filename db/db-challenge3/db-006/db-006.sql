@@ -3,3 +3,4 @@ SELECT u.id, email, password, name, introduction, business_phone, cell_phone,
   FROM users AS u
   JOIN profiles AS p
     ON u.id = p.user_id
+ORDER BY u.id ASC
